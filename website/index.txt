@@ -1,0 +1,77 @@
+h1. tamarind
+
+h1. &#x2192; 'tamarind'
+
+
+h2. What
+
+Tamarind was designed to make it as easy as possible for developers to participate in the Semantic Web by exposing their data in accordance with applicable standards and ontologies.  In particular, Tamarind targets developers using Ruby frameworks and ORMs.
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install tamarind</pre>
+
+h2. Demonstration of usage
+
+==Adding New Ontologies
+
+To add an ontology, a developer need only follow these steps:
+
+1.  Under tamarind/branches, create a directory for the ontology along with a module that identifies the data fields
+	necessary for filling in the ontology.  (See the FOAF ontology as an example.)
+2.  Write the template using Ruby builder syntax and save it under the directory from step 1.  Fields that must come from 
+	the database should be prefixed by the "@" sign.  (Again, see the FOAF ontology as an example.)
+3.  There is no step three.
+
+==General Process for Using Ontologies In Your Application
+
+To use an ontology, a developer need only follow these steps:
+
+1.  Require the gem in your application
+2.  Check out the documentation for the gem to find what ontologies are supported and learn how to use the "offers_*" 
+	methods.
+3.  In your model file, call offers_<ontology>, where <ontology> is the lowercase RDF type (e.g. offers_foaf).
+	
+====Instructions for Merb (0.9.1 or greater)
+
+*in config/init.rb
+
+Merb::BootLoader.before_app_loads do
+ dependency 'tamarind'
+end
+
+Merb::BootLoader.after_app_loads do
+  Merb.add_mime_type(:rdf,:to_rdf,%w[application/rdf+xml])
+end
+
+*in any controller that's going to use Tamarind, add:
+
+provides :rdf
+
+*in the model (e.g. User), add:
+	offers_foaf :name => 'username', 
+				:email => 'email',  #takes a hash mapping the ontology's canonical attributes to the model's accessors
+							#defaults to using the same names
+
+*in any view (e.g. the User show action) using Tamarind, add this to enable auto-discovery:
+<link rel="meta" type="application/rdf+xml" title="foo" href="<%=@user.id%>.rdf" />
+
+h2. Forum
+
+"http://groups.google.com/group/tamarind":http://groups.google.com/group/tamarind
+
+TODO - create Google Group - tamarind
+
+h2. How to submit patches
+
+Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
+
+The trunk repository is <code>git://github.com/pius/tamarind.git</code> for anonymous access.  Git it.  Improve it.
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "Pius Uzamere":mailto:pius+tamarind@uyiosa.com.

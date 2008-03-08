@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      tamarind
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+<div id="main">
+
+    <h1>tamarind</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/tamarind"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/tamarind" class="numbers">0.4.0</a>
+    </div>
+    <h1>&#x2192; &#8216;tamarind&#8217;</h1>
+
+
+	<h2>What</h2>
+
+
+	<p>Tamarind was designed to make it as easy as possible for developers to participate in the Semantic Web by exposing their data in accordance with applicable standards and ontologies.  In particular, Tamarind targets developers using Ruby frameworks and ORMs.</p>
+
+
+	<h2>Installing</h2>
+
+
+	<p><pre class='syntax'><span class="ident">sudo</span> <span class="ident">gem</span> <span class="ident">install</span> <span class="ident">tamarind</span></pre></p>
+
+
+	<h2>Demonstration of usage</h2>
+
+
+Adding New Ontologies
+
+	<p>To add an ontology, a developer need only follow these steps:</p>
+
+
+	<p>1.  Under tamarind/branches, create a directory for the ontology along with a module that identifies the data fields
+    necessary for filling in the ontology.  (See the FOAF ontology as an example.)
+2.  Write the template using Ruby builder syntax and save it under the directory from step 1.  Fields that must come from 
+    the database should be prefixed by the "@" sign.  (Again, see the FOAF ontology as an example.)
+3.  There is no step three.</p>
+
+
+General Process for Using Ontologies In Your Application
+
+	<p>To use an ontology, a developer need only follow these steps:</p>
+
+
+	<p>1.  Require the gem in your application
+2.  Check out the documentation for the gem to find what ontologies are supported and learn how to use the &#8220;offers_<strong>&#8221; 
+    methods.
+3.  In your model file, call offers_<ontology>, where <ontology> is the lowercase <span class="caps">RDF</span> type (e.g. offers_foaf).</p>
+
+
+	<p>====Instructions for Merb (0.9.1 or greater)</p>
+
+
+	<p></strong>in config/init.rb</p>
+
+
+	<p>Merb::BootLoader.before_app_loads do
+ dependency &#8216;tamarind&#8217;
+end</p>
+
+
+	<p>Merb::BootLoader.after_app_loads do
+  Merb.add_mime_type(:rdf,:to_rdf,%w[application/rdf+xml])
+end</p>
+
+
+	<p><strong>in any controller that&#8217;s going to use Tamarind, add:</p>
+
+
+	<p>provides :rdf</p>
+
+
+	<p></strong>in the model (e.g. User), add:
+    offers_foaf :name =&gt; &#8216;username&#8217;, 
+                :email =&gt; &#8216;email&#8217;,  #takes a hash mapping the ontology&#8217;s canonical attributes to the model&#8217;s accessors
+                            #defaults to using the same names</p>
+
+
+*in any view (e.g. the User show action) using Tamarind, add this to enable auto-discovery:
+<link rel="meta" type="application/rdf+xml" title="foo" href="<<span>=@user.id</span>&gt;.rdf&#8221; /&gt;
+
+	<h2>Forum</h2>
+
+
+	<p><a href="http://groups.google.com/group/tamarind">http://groups.google.com/group/tamarind</a></p>
+
+
+	<p><span class="caps">TODO</span> &#8211; create Google Group &#8211; tamarind</p>
+
+
+	<h2>How to submit patches</h2>
+
+
+	<p>Read the <a href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/">8 steps for fixing other people&#8217;s code</a> and for section <a href="http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups">8b: Submit patch to Google Groups</a>, use the Google Group above.</p>
+
+
+	<p>The trunk repository is <code>git://github.com/pius/tamarind.git</code> for anonymous access.  Git it.  Improve it.</p>
+
+
+	<h2>License</h2>
+
+
+	<p>This code is free to use under the terms of the <span class="caps">MIT</span> license.</p>
+
+
+	<h2>Contact</h2>
+
+
+	<p>Comments are welcome. Send an email to <a href="mailto:pius+tamarind@uyiosa.com">Pius Uzamere</a>.</p>
+    <p class="coda">
+      <a href="FIXME email">FIXME full name</a>, 7th March 2008<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
+</html>
