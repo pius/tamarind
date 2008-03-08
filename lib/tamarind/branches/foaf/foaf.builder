@@ -25,8 +25,8 @@ foaf.tag!('rdf:RDF', 'xmlns:rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#
     # foaf.tag!('foaf:knows') do
     #   foaf.tag!('foaf:Person') do
     #     foaf.tag!('foaf:name', @name) if @name
-    #     foaf.tag!('foaf:mbox', 'mailto:matt@uyiosa.com')
-    #     foaf.tag!('rdfs:seeAlso', 'rdf:resource' => 'http://web.mit.edu/matt')
+    #     foaf.tag!('foaf:mbox', 'mailto:friendo@example.com')
+    #     foaf.tag!('rdfs:seeAlso', 'rdf:resource' => 'http://www.example.com/friendo')
     #   end
     # end
   end
