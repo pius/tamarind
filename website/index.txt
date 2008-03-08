@@ -9,7 +9,8 @@ Tamarind was designed to make it as easy as possible for developers to participa
 
 h2. Installing
 
-<pre syntax="ruby">sudo gem install tamarind</pre>
+1.  Git it.  (<pre syntax="ruby">git clone git://github.com/pius/tamarind.git</pre>)
+2.  Install the gem.  (<pre syntax="ruby">cd tamarind; rake local_deploy</pre>)
 
 h2. Demonstration of usage
 
