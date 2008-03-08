@@ -3,6 +3,14 @@ in accordance with applicable standards and ontologies.  In particular, Tamarind
 
 Note that this release is not intended for production use.  Please consider all pre-1.0 releases "developer" releases.
 
+==Installation
+
+When Tamarind is ready for production use, the gem will be published on Rubyforge.  Developers who'd like to use it now
+should:
+
+1.  Git it.  (git clone git://github.com/pius/tamarind.git)
+2.  Install the gem.  (cd tamarind; rake local_deploy)
+
 ==Adding New Ontologies
 
 To add an ontology, a developer need only follow these steps:
