@@ -8,7 +8,7 @@ foaf.tag!('rdf:RDF', 'xmlns:rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#
     foaf.tag!('foaf:maker', 'rdf:resource' => '#me')
     foaf.tag!('foaf:primaryTopic', 'rdf:resource' => '#me')
     foaf.tag!('admin:generatorAgent', 'rdf:resource' => 'http://www.example.com')
-    foaf.tag!('admin:errorReportsTo', 'rdf:resource' => 'mailto:pius+tamarind@uyiosa.com')
+    foaf.tag!('admin:errorReportsTo', 'rdf:resource' => 'mailto:tamarind@example.com')
   end
   foaf.tag!('foaf:Person', 'rdf:ID' => 'me') do
     foaf.tag!('foaf:name', @name) if @name
