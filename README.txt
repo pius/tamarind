@@ -56,6 +56,7 @@ provides :rdf
 
 ==TODO
 
+	Add generator for new ontologies
 	Add specs
 	Support templating engines besides Builder
 	Automatically parse the variables out of the template rather than require them to be explicitly declared
