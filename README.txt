@@ -3,6 +3,8 @@ in accordance with applicable standards and ontologies.  In particular, Tamarind
 
 Note that this release is not intended for production use.  Please consider all pre-1.0 releases "developer" releases.
 
+Oh, and where does the name come from?  Well, the Old Testament, Koran, and Torah refer to the Tree of Knowledge in the Garden of Eden as a Tamarind tree.  (Book of Enoch 31:4).
+
 ==Installation
 
 When Tamarind is ready for production use, the gem will be published on Rubyforge.  Developers who'd like to use it now
